@@ -6,6 +6,8 @@ $pos_at = strpos($mail, '@');
 
 if(strlen($name) > 3 && $pos_at && strpos($mail, '.', $pos_at) && is_numeric($age)) {
     $message = 'Accesso riuscito';
+} else if (empty($name) || empty($age) || empty($mail)) {
+    $message = 'Inserisci i tuoi dati';
 } else {
     $message = 'Accesso negato';
 }
@@ -20,11 +22,11 @@ if(strlen($name) > 3 && $pos_at && strpos($mail, '.', $pos_at) && is_numeric($ag
 </head>
 <body style="height: 100vh; background-color: bisque; overflow: hidden;">
     <form style="position: relative; height: 100%; display: flex; justify-content: center; align-items: center" action="" method="get">
-        <label style="margin-right: 1rem; margin-left: 1rem;" for="name">NAME:</label>
+        <label style="margin-right: 1rem; margin-left: 1rem; font-weight: bold;" for="name">NAME:</label>
         <input type="text" name="name" id="name">
-        <label style="margin-right: 1rem; margin-left: 1rem;" for="age">AGE:</label>
+        <label style="margin-right: 1rem; margin-left: 1rem; font-weight: bold" for="age">AGE:</label>
         <input type="text" name="age" id="age">
-        <label style="margin-right: 1rem; margin-left: 1rem;" for="mail">E-MAIL:</label>
+        <label style="margin-right: 1rem; margin-left: 1rem; font-weight: bold" for="mail">E-MAIL:</label>
         <input type="text" name="mail" id="mail">
         <button style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%);">SUBMIT</button>
     </form>
