@@ -2,13 +2,7 @@
 $name = isset($_GET['name']) ? $_GET['name'] : '';
 $age = isset($_GET['age']) ? $_GET['age'] : '';
 $mail = isset($_GET['mail']) ? $_GET['mail'] : '';
-
-if(isset($_GET['name']) && isset($_GET['age']) && isset($_GET['mail'])) {
-    $name = $_GET['name'];
-    $age = $_GET['age'];
-    $mail = $_GET['mail'];
-    $pos_at = strpos($mail, '@');
-}
+$pos_at = strpos($mail, '@');
 
 if(strlen($name) > 3 && $pos_at && strpos($mail, '.', $pos_at) && is_numeric($age)) {
     $message = 'Accesso riuscito';
@@ -24,22 +18,16 @@ if(strlen($name) > 3 && $pos_at && strpos($mail, '.', $pos_at) && is_numeric($ag
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snack 2</title>
 </head>
-<body>
-    <form action="">
-        <label for="name">
-            NAME:
-        </label>
-        <input type="text" id="name">
-        <label for="age">
-            AGE:
-        </label>
-        <input type="text" name="number" id="number">
-        <label for="mail">
-            E-MAIL
-        </label>
+<body style="height: 100vh; background-color: bisque; overflow: hidden;">
+    <form style="position: relative; height: 100%; display: flex; justify-content: center; align-items: center" action="" method="get">
+        <label style="margin-right: 1rem; margin-left: 1rem;" for="name">NAME:</label>
+        <input type="text" name="name" id="name">
+        <label style="margin-right: 1rem; margin-left: 1rem;" for="age">AGE:</label>
+        <input type="text" name="age" id="age">
+        <label style="margin-right: 1rem; margin-left: 1rem;" for="mail">E-MAIL:</label>
         <input type="text" name="mail" id="mail">
-        <button>SUBMIT</button>
+        <button style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%);">SUBMIT</button>
     </form>
-    <h1><?php $message ?></h1>  
+    <h1 style="position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%); text-transform: uppercase; color: coral;"><?php echo $message ?></h1>
 </body>
 </html>
